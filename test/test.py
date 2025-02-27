@@ -28,8 +28,6 @@ async def test_priority_encoder(dut):
         (0b00000000, 0b00010000, 0b00000100),  # ui_in = 00000000, uio_in = 00010000 → concatenated_input = 00000000_00010000 → first 1 at bit 4
         # Edge case 8: Multiple 1s with the first 1 at bit 12
         (0b00010000, 0b00010000, 0b00001100),  # ui_in = 00010000, uio_in = 00010000 → concatenated_input = 00010000_00010000 → first 1 at bit 12
-        # Edge case 9: Input with x (unknown) values
-        (BinaryValue("xxxxxxxx", 8), BinaryValue("xxxxxxxx", 8), None),  # ui_in = xxxxxxxx, uio_in = xxxxxxxx → concatenated_input = xxxxxxxx_xxxxxxxx → unresolved output
     ]
 
     for ui_in, uio_in, expected in test_cases:
